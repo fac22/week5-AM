@@ -1,5 +1,10 @@
+import React from 'react';
+import Card from './Card.jsx';
+
 function Container() {
-  return <div className="container">Hello World</div>;
+  //const [card, addCard] = React.useState([]);
+
+  return <div>hi</div>;
 }
 
 export default Container;

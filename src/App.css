@@ -8,3 +8,7 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.card {
+  border: 1px red solid;
+}
