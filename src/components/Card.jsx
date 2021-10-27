@@ -27,12 +27,20 @@ function Card({ name }) {
       });
   }, [name]);
 
+  function handleRemove(id) {
+    const newList = filteredCards.filter((card) => card.id !== id);
+    addCard(newList);
+  }
+
   const filteredCards = cards.filter((card) => card !== undefined);
-  console.log('filtered array', filteredCards);
+  console.log(filteredCards);
   const cardList = filteredCards.map((card) => (
-    <div>
-      <p>{card.message}</p>
-      <p>{card.documentation_url}</p>
+    <div key={card.id}>
+      <p>{card.name}</p>
+      <p>{card.avatar_url}</p>
+      <button type="button" onClick={() => handleRemove(card.id)}>
+        Remove
+      </button>
     </div>
   ));
   return <div>{cardList}</div>;
