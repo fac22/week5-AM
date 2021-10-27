@@ -3,49 +3,33 @@ const USER_URL = 'https://api.github.com/users/';
 
 function Card({ name }) {
   const [user, setUser] = React.useState();
-  const [card, addCard] = React.useState([]);
-  
-  // console.log('user info', user);
-  // console.log('card array', card);
-  const containerArray = [];
-  
+  const [cards, addCard] = React.useState([
+    {
+      avatar_url: 'https://avatars.githubusercontent.com/u/72146072?v=4',
+      name: 'Michael Williams',
+      repos_url: 'https://api.github.com/users/MJOW1999/repos',
+    },
+  ]);
 
   React.useEffect(() => {
     fetch(USER_URL + name)
       .then((res) => res.json())
       .then((data) => {
-        setUser(data)
-        console.log("set user", setUser(data))
-        return user})
+        setUser(data);
+        return user;
+      })
       .then((user) => {
-        let temp = [...card];
+        let temp = [...cards];
         temp.push(user);
-        addCard(temp)
-        console.log("Cards", card)
-        return card})
-      // .then(() => {
-      //   containerArray.push(card)
-      //   console.log("Container array", containerArray)
-      // return containerArray});
+        addCard(temp);
+        return cards;
+      });
   }, [name]);
 
-    React.useEffect(() => {
-      console.log("Card", card);
-      // return containerArray.push(card);
-    }, [card])
-
-
-  
-
-  if (!user) return <div>Loading...</div>;
-  return (
-    // <div className="card">
-    //   <h1>{user.name}</h1>
-    //   <img src={user.avatar_url} alt="" width="128" height="128" />
-    //   <button>Click me</button>
-    // </div>
-    <div className="card"></div>
-  );
+  const filteredCards = cards.filter((card) => card !== undefined);
+  console.log('filtered array', filteredCards);
+  const cardList = filteredCards.map((card) => <p>{card.name}</p>);
+  return <div>{cardList}</div>;
 }
 
 export default Card;
