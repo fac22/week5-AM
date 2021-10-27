@@ -3,13 +3,13 @@ const USER_URL = 'https://api.github.com/users/';
 
 function Card({ name }) {
   const [user, setUser] = React.useState();
-  const [cards, addCard, removeCard] = React.useState([
-    {
+  const [cards, addCard] = React.useState([
+    /* {
       avatar_url: 'https://avatars.githubusercontent.com/u/72146072?v=4',
       name: 'Michael Williams',
       repos_url: 'https://api.github.com/users/MJOW1999/repos',
       message: 'blank message',
-    },
+    },*/
   ]);
 
   React.useEffect(() => {
@@ -27,18 +27,18 @@ function Card({ name }) {
       });
   }, [name]);
 
-  function handleRemove(message) {
-    const newList = filteredCards.filter((card) => card.message !== message);
+  function handleRemove(id) {
+    const newList = filteredCards.filter((card) => card.id !== id);
     addCard(newList);
   }
 
   const filteredCards = cards.filter((card) => card !== undefined);
-
+  console.log(filteredCards);
   const cardList = filteredCards.map((card) => (
-    <div>
-      <p>{card.message}</p>
-      <p>{card.documentation_url}</p>
-      <button type="button" onClick={() => handleRemove(card.message)}>
+    <div key={card.id}>
+      <p>{card.name}</p>
+      <p>{card.avatar_url}</p>
+      <button type="button" onClick={() => handleRemove(card.id)}>
         Remove
       </button>
     </div>
