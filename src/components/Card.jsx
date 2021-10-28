@@ -46,28 +46,32 @@ function Card({ name }) {
     addCard(temp);
   }, [user]);
 
+  const cardList = cards.filter((card) => card !== undefined);
   function handleRemove(id) {
-    const newList = cards.filter((card) => card.id !== id);
+    const newList = cardList.filter((card) => card.id !== id);
     addCard(newList);
   }
+  return (
+    <div>
+      {cardList.map((card) => (
+        <div className="card" key={card.id}>
+          <h1>{card.name}</h1>
+          <img className="avatar" src={card.avatar_url} alt={card.name} />
+          <p>Repos: {card.public_repos}</p>
+          <a href={card.html_url}>Profile 🔗</a>
 
-  const cardList = cards
-    .filter((card) => card !== undefined)
-    .map((card) => (
-      <div className="card" key={card.id}>
-        <h1>{card.name}</h1>
-        <img className="avatar" src={card.avatar_url} alt={card.name} />
-        <p>Repos: {card.public_repos}</p>
-        <a href={card.html_url}>Profile 🔗</a>
+          <Counter />
 
-        <Counter />
-
-        <button className="trash-button" onClick={() => handleRemove(card.id)}>
-          Remove this card 🗑️
-        </button>
-      </div>
-    ));
-  return <div>{cardList}</div>;
+          <button
+            className="trash-button"
+            onClick={() => handleRemove(card.id)}
+          >
+            Remove this card 🗑️
+          </button>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Card;
