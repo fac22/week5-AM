@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card.jsx';
-import '../Search.css';
+import '../css/Search.css';
 
 function Search() {
   const [name, setName] = React.useState('oliverjam');

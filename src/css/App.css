@@ -1,13 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
 * {
   box-sizing: border-box;
-  font-family: 'Courier Prime', monospace;
+  font-family: "Courier Prime", monospace;
 }
 
 /*mobile styles*/
+body {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  font-size: larger;
+  display: flex;
+  justify-content: center;
+  background: papayawhip;
+  margin: 0;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
@@ -17,10 +29,13 @@
   padding: 2rem;
   background-color: #fce38a;
   box-shadow: 6px 6px 1px 0px rgba(198, 54, 99, 0.4);
+  font-size: large;
 }
 
-h1 {
+h1,
+h4 {
   color: #c63663;
+  text-align: center;
 }
 
 .avatar {
@@ -38,10 +53,17 @@ button {
   cursor: pointer;
   text-align: center;
   margin-top: 1rem;
+  font-size: medium;
 }
 
 .star-button,
 .trash-button {
   border: none;
   background-color: inherit;
+}
+
+@media (min-width: 800px) {
+  body {
+    padding-top: 5rem;
+  }
 }
