@@ -7,15 +7,17 @@ function Counter() {
     setCount((prevCount) => prevCount + '⭐️');
   };
 
-  const handleDecrement = () => {
-    setCount((prevCount) => prevCount - '⭐️');
-  };
   return (
     <div>
       <div>
-        <button onClick={handleIncrement}>Add a ⭐️</button>⭐️{count}
+        <button className="star-button" onClick={handleIncrement}>
+          Add a ⭐️
+        </button>
+        {count}
       </div>
-      <button onClick={() => setCount('')}>Reset ⭐️</button>
+      <button className="star-button" onClick={() => setCount('')}>
+        Reset your rating 🔄
+      </button>
     </div>
   );
 }
