@@ -1,5 +1,6 @@
 import React from 'react';
 import Counter from './Counter';
+import '../App.css';
 
 const USER_URL = 'https://api.github.com/users/';
 
@@ -7,10 +8,22 @@ function Card({ name }) {
   const [user, setUser] = React.useState();
   const [cards, addCard] = React.useState([
     {
-      avatar_url: 'https://avatars.githubusercontent.com/u/72146072?v=4',
+      id: 43313455,
+      name: 'Anna Cunnane',
+      avatar_url: 'https://avatars.githubusercontent.com/u/43313455?v=4',
+      public_repos: 17,
+    },
+    {
+      id: 37059,
+      name: 'D Sofer',
+      avatar_url: 'https://avatars.githubusercontent.com/u/37059?v=4',
+      public_repos: 56,
+    },
+    {
+      id: 72146072,
       name: 'Michael Williams',
-      repos_url: 'https://api.github.com/users/MJOW1999/repos',
-      message: 'blank message',
+      avatar_url: 'https://avatars.githubusercontent.com/u/72146072?v=4',
+      public_repos: 18,
     },
   ]);
 
@@ -19,6 +32,7 @@ function Card({ name }) {
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
+
         return user;
       });
   }, [name]);
@@ -37,12 +51,14 @@ function Card({ name }) {
   const filteredCards = cards.filter((card) => card !== undefined);
 
   const cardList = filteredCards.map((card) => (
-    <div key={card.id}>
-      <p>{card.name}</p>
-      <img src={card.avatar_url} alt="" width="128" height="128" />
+    <div className="card" key={card.id}>
+      <h1>{card.name}</h1>
+      <img className="avatar" src={card.avatar_url} alt={card.name} />
+      <p>Repos: {card.public_repos}</p>
+
       <Counter />
       <button type="button" onClick={() => handleRemove(card.id)}>
-        Remove
+        Remove card from your collection
       </button>
     </div>
   ));

@@ -1,14 +1,47 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+* {
+  box-sizing: border-box;
+  font-family: 'Courier Prime', monospace;
 }
 
 .container {
-  border: 1px black solid;
   height: 75vh;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .card {
-  border: 1px red solid;
+  margin-top: 2rem;
+  max-width: 80%;
+  border-radius: 5%;
+  padding: 2rem;
+  background-color: #fce38a;
+  box-shadow: 6px 6px 1px 0px rgba(198, 54, 99, 0.4);
+}
+
+h1 {
+  color: #c63663;
+}
+
+.avatar {
+  height: 8rem;
+  border-radius: 50%;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: black;
+  display: block;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 10%;
+  background-color: white;
 }

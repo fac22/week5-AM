@@ -1,10 +1,13 @@
 import React from 'react';
-import Card from './Card.jsx';
+import Search from './Search.jsx';
+import '../App.css';
 
 function Container() {
-  //const [card, addCard] = React.useState([]);
-
-  return <div></div>;
+  return (
+    <div className="container">
+      <Search />
+    </div>
+  );
 }
 
 export default Container;
