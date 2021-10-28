@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 
 function Counter() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState('⭐️');
 
   const handleIncrement = () => {
-    setCount((prevCount) => prevCount + 1);
+    setCount((prevCount) => prevCount + '⭐️');
   };
 
   const handleDecrement = () => {
-    setCount((prevCount) => prevCount - 1);
+    setCount((prevCount) => prevCount - '⭐️');
   };
   return (
     <div>
       <div>
-        <button onClick={handleDecrement}>-</button>
-        <p>Likes 👍 {count}</p>
-        <button onClick={handleIncrement}>+</button>
+        <button onClick={handleIncrement}>Add a ⭐️</button>⭐️{count}
       </div>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <button onClick={() => setCount('')}>Reset ⭐️</button>
     </div>
   );
 }
