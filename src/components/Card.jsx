@@ -47,7 +47,7 @@ function Card({ name }) {
   }, [user]);
 
   function handleRemove(id) {
-    const newList = filteredCards.filter((card) => card.id !== id);
+    const newList = cards.filter((card) => card.id !== id);
     addCard(newList);
   }
 
