@@ -51,14 +51,33 @@ function Card({ name }) {
     const newList = cardList.filter((card) => card.id !== id);
     addCard(newList);
   }
+  if(!cardList.length){
+    return(
+      <div>
+        <h1>No cards... 🙃</h1>
+        <h2>Add some cards to to your collection <span aria-label="hand pointing up">👆</span> </h2>
+      </div>
+    )
+  }else if (cardList.length > 12){
+    cardList.length = 0;
+    return(
+      <div>
+        <h1>Too many cards!</h1>
+        <h2>Restart your collection <a href="javascript:window.location.reload(true)">here</a> </h2>
+      </div>
+      
+
+    )
+    
+  }
   return (
     <div>
-      {cardList.map((card) => (
+      {cardList.map((card, index) => (
         <div className="card" key={card.id}>
           <h1>{card.name}</h1>
           <img className="avatar" src={card.avatar_url} alt={card.name} />
           <p>Repos: {card.public_repos}</p>
-          <a href={card.html_url}>Profile 🔗</a>
+          <a href={card.html_url} target="_blank">Profile 🔗</a>
 
           <Counter />
 
@@ -68,6 +87,8 @@ function Card({ name }) {
           >
             Remove this card 🗑️
           </button>
+
+          <span>{index + 1}/{cardList.length}</span>
         </div>
       ))}
     </div>

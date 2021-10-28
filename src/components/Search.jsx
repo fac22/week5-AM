@@ -19,6 +19,7 @@ function Search() {
           placeholder="Search users"
           name="username"
         />
+        <span>Warning: Maximum <b>12</b> cards in your collection!</span>
       </form>
       <Card name={name} />
     </article>
