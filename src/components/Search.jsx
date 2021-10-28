@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card.jsx';
 
 function Search() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState('oliverjam');
   return (
     <article>
       <form
