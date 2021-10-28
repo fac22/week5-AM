@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card.jsx';
+import '../Search.css';
 
 function Search() {
   const [name, setName] = React.useState('oliverjam');
@@ -11,6 +12,7 @@ function Search() {
           setName(event.target.username.value);
         }}
       >
+        <label for="username">Select a GitHub user!</label>
         <input
           type="search"
           aria-label="Search users"
