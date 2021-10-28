@@ -1,4 +1,6 @@
 import React from 'react';
+import Counter from './Counter';
+
 const USER_URL = 'https://api.github.com/users/';
 
 function Card({ name }) {
@@ -37,7 +39,8 @@ function Card({ name }) {
   const cardList = filteredCards.map((card) => (
     <div key={card.id}>
       <p>{card.name}</p>
-      <p>{card.avatar_url}</p>
+      <img src={card.avatar_url} alt="" width="128" height="128" />
+      <Counter />
       <button type="button" onClick={() => handleRemove(card.id)}>
         Remove
       </button>
