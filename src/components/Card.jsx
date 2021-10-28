@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from './Counter';
-import '../App.css';
+import '../css/App.css';
 
 const USER_URL = 'https://api.github.com/users/';
 
@@ -51,22 +51,22 @@ function Card({ name }) {
     addCard(newList);
   }
 
-  const filteredCards = cards.filter((card) => card !== undefined);
+  const cardList = cards
+    .filter((card) => card !== undefined)
+    .map((card) => (
+      <div className="card" key={card.id}>
+        <h1>{card.name}</h1>
+        <img className="avatar" src={card.avatar_url} alt={card.name} />
+        <p>Repos: {card.public_repos}</p>
+        <a href={card.html_url}>Profile 🔗</a>
 
-  const cardList = filteredCards.map((card) => (
-    <div className="card" key={card.id}>
-      <h1>{card.name}</h1>
-      <img className="avatar" src={card.avatar_url} alt={card.name} />
-      <p>Repos: {card.public_repos}</p>
-      <a href={card.html_url}>Profile 🔗</a>
+        <Counter />
 
-      <Counter />
-
-      <button className="trash-button" onClick={() => handleRemove(card.id)}>
-        Remove this card 🗑️
-      </button>
-    </div>
-  ));
+        <button className="trash-button" onClick={() => handleRemove(card.id)}>
+          Remove this card 🗑️
+        </button>
+      </div>
+    ));
   return <div>{cardList}</div>;
 }
 

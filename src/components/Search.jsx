@@ -12,7 +12,7 @@ function Search() {
           setName(event.target.username.value);
         }}
       >
-        <label for="username">Select a GitHub user!</label>
+        <label htmlFor="username">Select a GitHub user!</label>
         <input
           type="search"
           aria-label="Search users"

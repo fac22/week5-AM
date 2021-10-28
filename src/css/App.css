@@ -6,17 +6,13 @@
 
 /*mobile styles*/
 .container {
-  height: 100vh;
   width: 90%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .card {
   margin-top: 2rem;
   text-align: center;
-  max-width: 80%;
   border-radius: 5%;
   padding: 2rem;
   background-color: #fce38a;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search.jsx';
-import '../App.css';
+import Card from './Card.jsx';
+import '../css/App.css';
 
 function Container() {
   return (
