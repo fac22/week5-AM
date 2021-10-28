@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card.jsx';
+import Cards from './Cards.jsx';
 
 function Search() {
   const [name, setName] = React.useState('');
@@ -18,7 +18,7 @@ function Search() {
           name="username"
         />
       </form>
-      <Card name={name} />
+      <Cards name={name} />
     </article>
   );
 }
