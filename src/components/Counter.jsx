@@ -4,6 +4,9 @@ function Counter() {
   const [count, setCount] = useState('⭐️');
 
   const handleIncrement = () => {
+    if (count === '⭐️⭐️⭐️⭐️') {
+      return;
+    }
     setCount((prevCount) => prevCount + '⭐️');
   };
 
