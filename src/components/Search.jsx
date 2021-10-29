@@ -20,7 +20,7 @@ function Search() {
           name="username"
         />
         <span>
-          Warning: Maximum <b>12</b> cards in your collection!
+          Create a collection of no more than <b>12</b> cards!
         </span>
       </form>
       <Card name={name} />
