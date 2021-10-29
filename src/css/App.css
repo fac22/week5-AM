@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 * {
   box-sizing: border-box;
-  font-family: "Courier Prime", monospace;
+  font-family: 'Courier Prime', monospace;
 }
 
 /*mobile styles*/
@@ -32,10 +32,10 @@ body {
   font-size: large;
 }
 
-h1,
-h4 {
+h1 {
   color: #c63663;
   text-align: center;
+  font-size: 2rem;
 }
 
 .avatar {

@@ -31,6 +31,10 @@ function Card({ name }) {
   ]);
 
   React.useEffect(() => {
+    //error handling to prevent empty card on page load or user adding an empty card
+    if (name === undefined || name === '') {
+      return;
+    }
     fetch(USER_URL + name)
       .then((res) => res.json())
       .then((data) => {
@@ -51,24 +55,27 @@ function Card({ name }) {
     const newList = cardList.filter((card) => card.id !== id);
     addCard(newList);
   }
-  if(!cardList.length){
-    return(
+  if (!cardList.length) {
+    return (
       <div>
         <h1>No cards... 🙃</h1>
-        <h2>Add some cards to to your collection <span aria-label="hand pointing up">👆</span> </h2>
+        <h2>
+          Add some cards to to your collection{' '}
+          <span aria-label="hand pointing up">👆</span>{' '}
+        </h2>
       </div>
-    )
-  }else if (cardList.length > 12){
+    );
+  } else if (cardList.length > 12) {
     cardList.length = 0;
-    return(
+    return (
       <div>
         <h1>Too many cards!</h1>
-        <h2>Restart your collection <a href="javascript:window.location.reload(true)">here</a> </h2>
+        <h2>
+          Restart your collection{' '}
+          <a href="javascript:window.location.reload(true)">here</a>{' '}
+        </h2>
       </div>
-      
-
-    )
-    
+    );
   }
   return (
     <div>
@@ -77,7 +84,9 @@ function Card({ name }) {
           <h1>{card.name}</h1>
           <img className="avatar" src={card.avatar_url} alt={card.name} />
           <p>Repos: {card.public_repos}</p>
-          <a href={card.html_url} target="_blank">Profile 🔗</a>
+          <a href={card.html_url} target="_blank">
+            Profile 🔗
+          </a>
 
           <Counter />
 
@@ -88,7 +97,9 @@ function Card({ name }) {
             Remove this card 🗑️
           </button>
 
-          <span>{index + 1}/{cardList.length}</span>
+          <span>
+            {index + 1}/{cardList.length}
+          </span>
         </div>
       ))}
     </div>

@@ -3,7 +3,7 @@ import Card from './Card.jsx';
 import '../css/Search.css';
 
 function Search() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState();
   return (
     <article>
       <form
