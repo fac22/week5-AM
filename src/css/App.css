@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
 * {
   box-sizing: border-box;
-  font-family: 'Courier Prime', monospace;
+  font-family: "Courier Prime", monospace;
 }
 
 /*mobile styles*/
@@ -30,6 +30,14 @@ body {
   background-color: #fce38a;
   box-shadow: 6px 6px 1px 0px rgba(198, 54, 99, 0.4);
   font-size: large;
+  position: relative;
+}
+.card span {
+  position: absolute;
+  top: 10%;
+  right: 6%;
+  font-size: x-large;
+  color: #c63663;
 }
 
 h1 {
