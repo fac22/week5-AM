@@ -39,14 +39,13 @@ function Card({ name }) {
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
-
         return user;
       });
   }, [name]);
 
   React.useEffect(() => {
     let temp = [...cards];
-    temp.push(user);
+    temp.unshift(user);
     addCard(temp);
   }, [user]);
 
