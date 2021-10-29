@@ -15,13 +15,6 @@ body {
   margin: 0;
 }
 
-.container {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
 .card {
   margin-top: 2rem;
   text-align: center;
