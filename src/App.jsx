@@ -5,7 +5,7 @@ import Container from './components/Container';
 function App() {
   return (
     <div className="App">
-      <h4>Which cards will you add to your collection?</h4>
+      <h1>Which cards will you add to your collection?</h1>
       <Container />
     </div>
   );
