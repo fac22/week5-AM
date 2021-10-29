@@ -3,7 +3,7 @@ import Card from './Card.jsx';
 import '../css/Search.css';
 
 function Search() {
-  const [name, setName] = React.useState('oliverjam');
+  const [name, setName] = React.useState();
   return (
     <article>
       <form
@@ -19,7 +19,9 @@ function Search() {
           placeholder="Search users"
           name="username"
         />
-        <span>Warning: Maximum <b>12</b> cards in your collection!</span>
+        <span>
+          Warning: Maximum <b>12</b> cards in your collection!
+        </span>
       </form>
       <Card name={name} />
     </article>
