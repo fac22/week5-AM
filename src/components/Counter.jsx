@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function Counter() {
   const [count, setCount] = useState('⭐️');
+
   //if star count already five prevent user from adding more
   const handleIncrement = () => {
     if (count === '⭐️⭐️⭐️⭐️') {

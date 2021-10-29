@@ -6,6 +6,7 @@ const USER_URL = 'https://api.github.com/users/';
 
 function Card({ name }) {
   const [user, setUser] = React.useState();
+  const isMounted = React.useRef(false);
   const [cards, addCard] = React.useState([
     {
       id: 43313455,
@@ -44,17 +45,23 @@ function Card({ name }) {
   }, [name]);
 
   React.useEffect(() => {
+    if (user === undefined) {
+      return;
+    }
     let temp = [...cards];
     temp.unshift(user);
+    if (temp.includes(user.id)) {
+      console.log('duplicate!');
+    }
     addCard(temp);
   }, [user]);
 
-  const cardList = cards.filter((card) => card !== undefined);
   function handleRemove(id) {
-    const newList = cardList.filter((card) => card.id !== id);
+    const newList = cards.filter((card) => card.id !== id);
     addCard(newList);
   }
-  if (!cardList.length) {
+
+  if (!cards.length) {
     return (
       <div>
         <h1>No cards... 🙃</h1>
@@ -64,8 +71,8 @@ function Card({ name }) {
         </h2>
       </div>
     );
-  } else if (cardList.length > 12) {
-    cardList.length = 0;
+  } else if (cards.length > 12) {
+    cards.length = 0;
     return (
       <div>
         <h1>Too many cards!</h1>
@@ -78,7 +85,7 @@ function Card({ name }) {
   }
   return (
     <div>
-      {cardList.map((card, index) => (
+      {cards.map((card, index) => (
         <div className="card" key={card.id}>
           <h1>{card.name}</h1>
           <img className="avatar" src={card.avatar_url} alt={card.name} />
@@ -97,7 +104,7 @@ function Card({ name }) {
           </button>
 
           <span>
-            {index + 1}/{cardList.length}
+            {index + 1}/{cards.length}
           </span>
         </div>
       ))}
